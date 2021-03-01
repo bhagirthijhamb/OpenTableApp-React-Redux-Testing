@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from './../actions';
 
 class RestaurantBox extends React.Component {
   state = { term: '' };
@@ -22,4 +24,4 @@ class RestaurantBox extends React.Component {
   }
 }
 
-export default RestaurantBox;
+export default connect(null, actions)(RestaurantBox);
