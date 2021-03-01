@@ -9,12 +9,17 @@ class RestaurantBox extends React.Component {
     this.setState({ term: e.target.value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.fetchRestaurants(this.state.term)
+    this.setState({ term: '' });
+  }
   
   render(){
     console.log(this.state.term);
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h4>Search for your restaurant</h4>
           <input type="text" value={this.state.term} onChange={this.handleChange}/>
           <button>Search</button>
